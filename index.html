@@ -16,6 +16,19 @@
 @media(max-width:580px){.topbar{min-height:84px;padding:12px 15px;gap:10px}.brand{gap:9px}.brand-label strong{font-size:15px}.brand-label small{font-size:13px}.monogram{font-size:47px;letter-spacing:-8px;padding-right:12px}.menu{padding:7px 10px;font-size:13px}.hero{display:block;min-height:0}.hero-inner{padding:32px 20px 0}.hero h1{font-size:clamp(47px,11vw,62px);margin-bottom:14px}.hero h2{font-size:31px;max-width:355px}.role{font-size:21px}.gold-rule{margin:19px 0 13px}.motto{font-size:21px;margin-bottom:23px}.btn{font-size:19px;padding:11px 18px}.hero-image{position:relative;display:block;width:100%;height:260px;margin-top:12px;background-position:center 64%;z-index:0;mask-image:linear-gradient(to bottom,transparent 0%,black 18%)}.hero:before{background:#f6eadd}.world{padding:26px 16px 30px}.section-head{gap:10px;margin-bottom:20px}.section-head:before,.section-head:after{flex:0 1 8%}.section-head h2{font-size:28px}.tiles{gap:11px}.tile{min-height:127px;flex-direction:column;justify-content:center;text-align:center;gap:9px;font-size:17px;padding:12px 7px}.tile svg{width:39px;height:39px}.content{padding:35px 18px}.article-grid{grid-template-columns:1fr}.panel{padding:20px}.foot-inner{flex-direction:column;text-align:center}.search{min-width:0}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 .monogram{display:flex;align-items:center;justify-content:center;height:clamp(60px,6.4vw,102px);width:clamp(95px,13vw,192px);letter-spacing:0;padding-right:16px}.monogram img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}@media(max-width:580px){.monogram{width:70px;height:48px;padding-right:7px}.topbar{padding-inline:10px}.brand-label strong{font-size:14px}.brand-label small{font-size:12px}.menu{padding:7px 8px}}
+
+/* Teacher profile — editable from the owner's separate cabinet. */
+.about-layout{display:grid;grid-template-columns:minmax(190px,290px) minmax(0,1fr);align-items:start;gap:clamp(20px,4vw,50px);margin-top:27px}
+.about-portrait{position:relative;overflow:hidden;aspect-ratio:3/4;border-radius:12px;border:1px solid #caa359;background:linear-gradient(135deg,#f3e6d3,#f9f5ed);margin:0;padding:8px;box-shadow:0 10px 28px #41342112}
+.about-portrait:before{content:"";position:absolute;inset:8px;border:1px solid #d4b77d;border-radius:7px;pointer-events:none}
+.portrait-placeholder{position:absolute;inset:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#826e54;text-align:center;padding:12px}.portrait-placeholder span{font:italic 64px Georgia,serif;color:var(--wine);letter-spacing:-7px}.portrait-placeholder small{font-size:13px}
+.about-portrait img{width:100%;height:100%;object-fit:cover;position:relative;border-radius:6px;display:block;z-index:1}.about-portrait img[hidden],#about [hidden]{display:none!important}
+.about-info h3{font:600 clamp(25px,2.75vw,39px)/1.15 Georgia,serif;margin:0 0 10px;color:var(--navy)}
+.about-info .about-role{font:italic 22px/1.4 Georgia,serif;color:var(--wine);margin:0 0 23px}.about-info p,.about-bio{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.65}
+.about-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:22px}
+.about-fact{padding:15px 17px;border:1px solid var(--line);background:#fff;border-radius:8px}.about-fact strong{color:var(--wine);font:600 19px Georgia,serif}.about-fact p{font-size:15px;margin:7px 0 0}
+.about-credo{margin:25px 0 0;padding:17px 20px;border-left:3px solid var(--gold);background:#f7efe1;border-radius:0 8px 8px 0}.about-credo p{margin:5px 0 0;font:italic 20px/1.5 Georgia,serif;color:var(--navy)}
+@media(max-width:640px){.about-layout{grid-template-columns:1fr}.about-portrait{width:min(100%,235px);margin-inline:auto}.about-info h3{font-size:27px}.about-facts{grid-template-columns:1fr}.about-info .about-role{font-size:20px}}
 </style>
 </head>
 <body>
@@ -29,7 +42,20 @@
 <a class="tile" href="#dialogue"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 26H16L8 34v-8H6V8h29v14M23 20h19v18h-4v8l-8-8H23Z"/></svg><span>Педагогический<br>диалог</span></a>
 </div></div></section>
 <div class="content">
-<section id="about"><div class="eyebrow">Знакомство</div><h2>Обо мне</h2><p class="lead">Милана Лечаевна Виситаева — учитель начальных классов.</p><p class="muted">Биография, педагогическое кредо и профессиональный опыт будут добавлены автором сайта.</p></section>
+<section id="about" aria-labelledby="about-title">
+<div class="eyebrow">Знакомство</div><h2 id="about-title">Обо мне</h2>
+<div class="about-layout">
+<figure class="about-portrait" id="about-portrait"><div class="portrait-placeholder" id="portrait-placeholder" aria-hidden="true"><span>МВ</span><small>Портрет будет добавлен</small></div><img id="teacher-photo" alt="Виситаева Милана Лечаевна" hidden></figure>
+<div class="about-info"><h3>Виситаева Милана Лечаевна</h3><p class="about-role">Учитель начальных классов</p><p id="about-intro" class="lead" hidden></p><div class="about-bio" id="about-bio" hidden></div>
+<div class="about-facts" id="about-facts" hidden>
+<div class="about-fact" id="fact-education" hidden><strong>Образование</strong><p id="about-education"></p></div>
+<div class="about-fact" id="fact-experience" hidden><strong>Педагогический стаж</strong><p id="about-experience"></p></div>
+<div class="about-fact" id="fact-school" hidden><strong>Место работы</strong><p id="about-school"></p></div>
+</div>
+<blockquote class="about-credo" id="about-credo-box" hidden><div class="eyebrow">Педагогическое кредо</div><p id="about-credo"></p></blockquote>
+<p class="muted" id="about-status" aria-live="polite">Профиль готовится к наполнению.</p>
+</div></div>
+</section>
 <hr class="divider">
 <section id="library"><div class="eyebrow">Методические материалы</div><h2>Методическая библиотека</h2><p class="lead">Конспекты уроков, рабочие листы, презентации и дидактические материалы.</p><label for="search" class="muted">Поиск по материалам</label><div><input class="search" type="search" id="search" placeholder="Название или ключевое слово"></div><div class="filters" aria-label="Категории материалов"><button class="filter" aria-pressed="true">Все материалы</button><button class="filter" aria-pressed="false">Конспекты</button><button class="filter" aria-pressed="false">Презентации</button><button class="filter" aria-pressed="false">Рабочие листы</button></div><div class="empty" aria-live="polite"><h3 id="empty-title">Библиотека готовится к открытию</h3><p id="empty-text">Здесь появятся авторские публикации Миланы Лечаевны.</p></div></section>
 <hr class="divider">
@@ -42,7 +68,7 @@
 <section class="panel" id="parents"><div class="eyebrow">Семья и школа</div><h3>Родителям</h3><p>Полезные рекомендации, памятки и материалы для поддержки младших школьников.</p></section>
 </div></div></main>
 <footer class="footer"><div class="foot-inner"><div><strong>Искусство учить</strong><p>Виситаева Милана Лечаевна · Персональный сайт педагога</p></div><a href="#top">К началу страницы ↑</a></div></footer>
-<div class="preview-note">Предварительная версия сайта. Материалы и система управления пока не подключены.</div>
+<div class="preview-note">Предварительная версия сайта. Методическая библиотека и обсуждения готовятся к наполнению.</div>
 <script>
 const menu=document.getElementById('menu'),nav=document.getElementById('nav');
 menu.addEventListener('click',()=>{let open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});
@@ -50,6 +76,45 @@ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.querySe
 const filters=[...document.querySelectorAll('.filter')],search=document.getElementById('search'),title=document.getElementById('empty-title'),desc=document.getElementById('empty-text');
 function update(){const chosen=filters.find(x=>x.getAttribute('aria-pressed')==='true');const searchText=search.value.trim();const isAll=chosen===filters[0];title.textContent=searchText||!isAll?'Пока нет материалов по вашему запросу':'Библиотека готовится к открытию';desc.textContent=searchText?'Запрос: «'+searchText+'». Публикации будут доступны после наполнения.':!isAll?'Категория: '+chosen.textContent+'. Публикации появятся здесь.':'Здесь появятся авторские публикации Миланы Лечаевны.'}
 filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(b=>b.setAttribute('aria-pressed',String(b===f)));update()}));search.addEventListener('input',update);
+</script>
+<script src="./profile-config.js"></script>
+<script>
+(function(){
+const status=document.getElementById('about-status');
+const endpoint=window.PROFILE_API_URL;
+if(typeof endpoint!=='string'||!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(endpoint)) return;
+function setText(id,value){const node=document.getElementById(id),text=typeof value==='string'?value.trim():'';node.textContent=text;node.hidden=!text;return !!text;}
+function apply(p){
+ const intro=setText('about-intro',p.intro),bio=setText('about-bio',p.bio),credo=setText('about-credo',p.credo);
+ document.getElementById('about-credo-box').hidden=!credo;
+ let hasFacts=false;
+ ['education','experience','school'].forEach(k=>{const has=setText('about-'+k,p[k]);document.getElementById('fact-'+k).hidden=!has;if(has)hasFacts=true;});
+ document.getElementById('about-facts').hidden=!hasFacts;
+ let hasPhoto=false;
+ if(typeof p.photo==='string'&&p.photo.length<=500000&&/^[A-Za-z0-9+/]+={0,2}$/.test(p.photo)){
+  try{
+   const image=document.getElementById('teacher-photo'),placeholder=document.getElementById('portrait-placeholder');
+   const bytes=Uint8Array.from(atob(p.photo),c=>c.charCodeAt(0));
+   if(bytes.length>4&&bytes[0]===255&&bytes[1]===216){
+    const url=URL.createObjectURL(new Blob([bytes],{type:'image/jpeg'}));
+    image.onload=()=>{image.hidden=false;placeholder.hidden=true;URL.revokeObjectURL(url)};
+    image.onerror=()=>{URL.revokeObjectURL(url);image.hidden=true;placeholder.hidden=false;};
+    image.src=url;hasPhoto=true;
+   }
+  }catch(_){}
+ }
+ status.hidden=!!(intro||bio||credo||hasFacts||hasPhoto);
+ if(!status.hidden)status.textContent='Профиль готовится к наполнению.';
+}
+const callback='displayTeacherProfile_'+Math.random().toString(36).slice(2);
+const loader=document.createElement('script');let timer;let finished=false;
+function cleanup(){if(finished)return;finished=true;clearTimeout(timer);delete window[callback];loader.remove()}
+function fail(){if(finished)return;status.textContent='Не удалось загрузить профиль. Попробуйте обновить страницу.';status.hidden=false;cleanup()}
+window[callback]=function(data){if(data&&data.ok&&data.profile){apply(data.profile);cleanup();}else fail();};
+status.textContent='Загружаем информацию о педагоге…';
+loader.src=endpoint+'?callback='+encodeURIComponent(callback)+'&v='+Date.now();
+loader.onerror=fail;timer=setTimeout(fail,16000);document.head.appendChild(loader);
+})();
 </script>
 </body>
 </html>
